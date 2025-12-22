@@ -24,7 +24,7 @@ public class PlayerMovement : MovementBase {
     }
 
     private void Move() {
-        rb.linearVelocity = data.Speed * Time.fixedDeltaTime * currentMovementDirection;
+        rb.linearVelocity = data.Speed * currentMovementDirection;
     }
 
     private void CheckMovingEvents() {
@@ -34,9 +34,10 @@ public class PlayerMovement : MovementBase {
             OnStopMoving?.Invoke();
         }
 
-
+        #region 
         bool MovementStarted() => !IsZero(currentMovementDirection) && IsZero(previousMovementDirection);
         bool MovementStopped() => IsZero(currentMovementDirection) && !IsZero(previousMovementDirection);
         static bool IsZero(Vector2 vector) => vector == Vector2.zero;
+        #endregion
     }
 }

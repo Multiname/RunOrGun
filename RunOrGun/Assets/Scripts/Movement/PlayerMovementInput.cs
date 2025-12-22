@@ -14,7 +14,7 @@ public class PlayerMovementInput : IMovementInput {
         InitGameInput();
         InitPlayerInputAction();
 
-
+        #region 
         void InitGameInput() {
             gameInput = new GameInput();
             gameInput.Enable();
@@ -27,6 +27,7 @@ public class PlayerMovementInput : IMovementInput {
                 playerInputAction = gameInput.Game.SecondPlayerMovement;
             }
         }
+        #endregion
     }
 
     public Vector2 GetMovementDirection() {
