@@ -32,6 +32,7 @@ public class AssaultRifle : WeaponBase {
         void SpawnProjectile() {
              var projectile = Instantiate(data.Projectile, transform.position, Quaternion.identity);
             projectile.TargetCoordinates = aim.GetFireTargetCoordinates();
+            projectile.FireInitiator = gameObject;
         }
         
         async UniTask WaitForFiringInterval() => await UniTask.WaitForSeconds(data.FiringInterval, cancellationToken: shootingCts.Token).SuppressCancellationThrow();

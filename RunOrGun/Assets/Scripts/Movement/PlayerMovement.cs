@@ -37,7 +37,7 @@ public class PlayerMovement : MovementBase {
         #region 
         bool MovementStarted() => !IsZero(currentMovementDirection) && IsZero(previousMovementDirection);
         bool MovementStopped() => IsZero(currentMovementDirection) && !IsZero(previousMovementDirection);
-        static bool IsZero(Vector2 vector) => vector == Vector2.zero;
+        bool IsZero(Vector2 vector) => vector == Vector2.zero;
         #endregion
     }
 }
