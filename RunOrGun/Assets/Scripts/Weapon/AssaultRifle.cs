@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class AssaultRifle : WeaponBase {
     private CancellationTokenSource shootingCts = null;
+    private UniTaskCompletionSource shotPreparationTcs = new();
 
-    private void Start() {
-        StartShooting();
+    private new void Awake() {
+        base.Awake();
+        SetShotPrepared();
     }
 
     private void OnDestroy() {
@@ -21,29 +23,42 @@ public class AssaultRifle : WeaponBase {
     }
 
     private async void ShootAsync() {
-        while (!ShootingIsCancelled()) {
+        await WaitForFiringStartDelay();
+        while (!ShootingIsStopped()) {
+            await WaitForPreparedShot();
+            if (ShootingIsStopped()) return;
+
             SpawnProjectile();
-            await WaitForFiringInterval();
+            PrepareToShoot();
         }
 
-        #region 
-        bool ShootingIsCancelled() => shootingCts?.Token.IsCancellationRequested ?? true;
+        #region
+        async UniTask WaitForFiringStartDelay() => await UniTask.WaitForSeconds(data.FiringStartDelay, cancellationToken: shootingCts.Token).SuppressCancellationThrow();
+        async UniTask WaitForPreparedShot() => await shotPreparationTcs.Task.AttachExternalCancellation(shootingCts.Token).SuppressCancellationThrow();
+        bool ShootingIsStopped() => shootingCts?.Token.IsCancellationRequested ?? true;
 
         void SpawnProjectile() {
              var projectile = Instantiate(data.Projectile, transform.position, Quaternion.identity);
             projectile.TargetCoordinates = aim.GetFireTargetCoordinates();
             projectile.FireInitiator = gameObject;
         }
-        
-        async UniTask WaitForFiringInterval() => await UniTask.WaitForSeconds(data.FiringInterval, cancellationToken: shootingCts.Token).SuppressCancellationThrow();
+
+        async void PrepareToShoot() {
+            shotPreparationTcs = new();
+            await UniTask.WaitForSeconds(data.FiringInterval);
+            SetShotPrepared();
+        }
         #endregion
     }
 
+    private void SetShotPrepared() => shotPreparationTcs.TrySetResult();
+
     public override void StopShooting() {
         if (shootingCts != null) {
-            shootingCts?.Cancel();
-            shootingCts?.Dispose();
+            var oldCts = shootingCts;
             shootingCts = null;
+            oldCts.Cancel();
+            oldCts.Dispose();
         }
     }
 }

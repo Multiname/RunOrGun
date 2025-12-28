@@ -13,18 +13,19 @@ public class PlayerMovement : MovementBase {
         movementInput = new PlayerMovementInput(playerOrder);
     }
 
-    private void Update() {
-        previousMovementDirection = currentMovementDirection;
-        currentMovementDirection = ReadMovement();
-    }
-
     private void FixedUpdate() {
+        UpdateMovementDirection();
         Move();
         CheckMovingEvents();
-    }
 
-    private void Move() {
-        rb.linearVelocity = data.Speed * currentMovementDirection;
+        #region
+        void UpdateMovementDirection() {
+            previousMovementDirection = currentMovementDirection;
+            currentMovementDirection = ReadMovement();
+        }
+        
+        void Move() => rb.linearVelocity = data.Speed * currentMovementDirection;
+        #endregion
     }
 
     private void CheckMovingEvents() {
