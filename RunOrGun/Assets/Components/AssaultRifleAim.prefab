@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829c8c2499e449d4f8c41609c9e51e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssaultRifleAim
-  <EnemyTransform>k__BackingField: {fileID: 0}
+  data: {fileID: 11400000, guid: 424a9d113ec2cc84e9bd7eec96320888, type: 2}
+  playerMovementBaseData: {fileID: 11400000, guid: 26a4b1033f980e24b91b9f0380382846, type: 2}
+  projectileBaseData: {fileID: 11400000, guid: 01bda1b5f023a7a47bb5666e71c403a5, type: 2}

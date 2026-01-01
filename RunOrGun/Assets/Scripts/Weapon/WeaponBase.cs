@@ -14,8 +14,7 @@ public abstract class WeaponBase : MonoBehaviour {
 
         #region 
         void SetAim() {
-            var aimType = data.Aim.GetType();
-            aim = gameObject.AddComponent(aimType) as AimBase;
+            aim = Instantiate(data.Aim, transform);
             aim.EnemyTransform = enemyTransform;
         }
         #endregion
