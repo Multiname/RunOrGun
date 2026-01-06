@@ -1,7 +1,8 @@
 using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour {
-    [SerializeField] protected WeaponBaseData data;
+    [SerializeField] protected WeaponBaseSharedData sharedData;
+    [SerializeField] protected WeaponBaseSingleData singleData;
     [SerializeField] Transform enemyTransform;
     
     protected AimBase aim;
@@ -14,7 +15,7 @@ public abstract class WeaponBase : MonoBehaviour {
 
         #region 
         void SetAim() {
-            aim = Instantiate(data.Aim, transform);
+            aim = Instantiate(sharedData.Aim, transform);
             aim.EnemyTransform = enemyTransform;
         }
         #endregion

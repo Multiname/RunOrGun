@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7e2a2c7103c3e46b8cd5ba36ab158b, type: 3}
-  m_Name: AssaultRifleData
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponBaseData
-  <FiringInterval>k__BackingField: 0.3
-  <FiringStartDelay>k__BackingField: 0.15
+  m_Script: {fileID: 11500000, guid: b07b5b46680fc4e4f9a36cdf0210cfc2, type: 3}
+  m_Name: AssaultRifleBaseSingleData_FirstPlayer
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponBaseSingleData
   <Projectile>k__BackingField: {fileID: 2892187292124697010, guid: 9f805fcccc5917b42a6393e1fbaa9f19, type: 3}
-  <Aim>k__BackingField: {fileID: 5938389978337612778, guid: 825a9a68a947247479d4cdb21ff2c973, type: 3}

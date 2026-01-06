@@ -746,6 +746,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781012764}
   m_CullTransparentMesh: 1
+--- !u!1 &1314586372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1314586373}
+  - component: {fileID: 1314586374}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1314586373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314586372}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1314586374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314586372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944352a5c502a1c41bf0edf41b074daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  players:
+  - {fileID: 1688899984}
+  - {fileID: 1684541136}
 --- !u!1 &1684541127
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,6 +809,7 @@ GameObject:
   - component: {fileID: 1684541135}
   - component: {fileID: 1684541133}
   - component: {fileID: 1684541134}
+  - component: {fileID: 1684541136}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -902,7 +950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25491ef60c3da4746b69a32950adbc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tagged
-  <TagList>k__BackingField: 2
+  <TagList>k__BackingField: 4
 --- !u!58 &1684541133
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -963,8 +1011,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9eef8d848a4de48ba08cf3c2525160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssaultRifle
-  data: {fileID: 11400000, guid: 8a326c5dc3467354d879998be4387381, type: 2}
+  sharedData: {fileID: 11400000, guid: cde9ceb1f7f2be843939a70d1a946417, type: 2}
+  singleData: {fileID: 11400000, guid: a73ef727bbf0ea346a19c26f184f8aab, type: 2}
   enemyTransform: {fileID: 1688899978}
+--- !u!114 &1684541136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684541127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68d9089c2d42f241976033a72d3456c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hittable
+  data: {fileID: 11400000, guid: b0ef865eef4a9e54daac96502f502f11, type: 2}
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1688899975
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,6 +1046,7 @@ GameObject:
   - component: {fileID: 1688899980}
   - component: {fileID: 1688899982}
   - component: {fileID: 1688899983}
+  - component: {fileID: 1688899984}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -1122,7 +1188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9eef8d848a4de48ba08cf3c2525160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssaultRifle
-  data: {fileID: 11400000, guid: 8a326c5dc3467354d879998be4387381, type: 2}
+  sharedData: {fileID: 11400000, guid: cde9ceb1f7f2be843939a70d1a946417, type: 2}
+  singleData: {fileID: 11400000, guid: b7db9cd6179d6554a80778e96fb57e42, type: 2}
   enemyTransform: {fileID: 1684541130}
 --- !u!114 &1688899981
 MonoBehaviour:
@@ -1136,7 +1203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25491ef60c3da4746b69a32950adbc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tagged
-  <TagList>k__BackingField: 2
+  <TagList>k__BackingField: 4
 --- !u!58 &1688899982
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1185,6 +1252,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3369979c908d1014eb135215ce4cdf57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+--- !u!114 &1688899984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688899975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68d9089c2d42f241976033a72d3456c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hittable
+  data: {fileID: 11400000, guid: c56d4c65f81c2c54eae36293629af55c, type: 2}
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2109212687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,3 +1370,4 @@ SceneRoots:
   - {fileID: 649497183}
   - {fileID: 386347761}
   - {fileID: 490090166}
+  - {fileID: 1314586373}

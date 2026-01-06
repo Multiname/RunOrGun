@@ -33,19 +33,19 @@ public class AssaultRifle : WeaponBase {
         }
 
         #region
-        async UniTask WaitForFiringStartDelay() => await UniTask.WaitForSeconds(data.FiringStartDelay, cancellationToken: shootingCts.Token).SuppressCancellationThrow();
+        async UniTask WaitForFiringStartDelay() => await UniTask.WaitForSeconds(sharedData.FiringStartDelay, cancellationToken: shootingCts.Token).SuppressCancellationThrow();
         async UniTask WaitForPreparedShot() => await shotPreparationTcs.Task.AttachExternalCancellation(shootingCts.Token).SuppressCancellationThrow();
         bool ShootingIsStopped() => shootingCts?.Token.IsCancellationRequested ?? true;
 
         void SpawnProjectile() {
-             var projectile = Instantiate(data.Projectile, transform.position, Quaternion.identity);
+            var projectile = Instantiate(singleData.Projectile, transform.position, Quaternion.identity);
             projectile.TargetCoordinates = aim.GetFireTargetCoordinates();
             projectile.FireInitiator = gameObject;
         }
 
         async void PrepareToShoot() {
             shotPreparationTcs = new();
-            await UniTask.WaitForSeconds(data.FiringInterval);
+            await UniTask.WaitForSeconds(sharedData.FiringInterval);
             SetShotPrepared();
         }
         #endregion
