@@ -29,6 +29,7 @@ public class AssaultRifle : WeaponBase {
             if (ShootingIsStopped()) return;
 
             SpawnProjectile();
+            InvokeFireEvent();
             PrepareToShoot();
         }
 
@@ -36,9 +37,10 @@ public class AssaultRifle : WeaponBase {
         async UniTask WaitForFiringStartDelay() => await UniTask.WaitForSeconds(sharedData.FiringStartDelay, cancellationToken: shootingCts.Token).SuppressCancellationThrow();
         async UniTask WaitForPreparedShot() => await shotPreparationTcs.Task.AttachExternalCancellation(shootingCts.Token).SuppressCancellationThrow();
         bool ShootingIsStopped() => shootingCts?.Token.IsCancellationRequested ?? true;
+        void InvokeFireEvent() => OnFire?.Invoke();
 
         void SpawnProjectile() {
-            var projectile = Instantiate(singleData.Projectile, transform.position, Quaternion.identity);
+            var projectile = Instantiate(singleData.Projectile, FirePoint.position, Quaternion.identity);
             projectile.TargetCoordinates = aim.GetFireTargetCoordinates();
             projectile.FireInitiator = gameObject;
         }

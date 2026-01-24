@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07b5b46680fc4e4f9a36cdf0210cfc2, type: 3}
   m_Name: AssaultRifleBaseSingleData_SecondPlayer
   m_EditorClassIdentifier: Assembly-CSharp::WeaponBaseSingleData
-  <Projectile>k__BackingField: {fileID: 2892187292124697010, guid: 1dbd3766567e281409f27b6cdd520b17, type: 3}
+  <Projectile>k__BackingField: {fileID: 2892187292124697010, guid: 8b86cb7b87210f5479dd76a6d1621b64, type: 3}
