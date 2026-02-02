@@ -33,4 +33,8 @@ public class PlayerMovementInput : IMovementInput {
     public Vector2 GetMovementDirection() {
         return playerInputAction.ReadValue<Vector2>();
     }
+
+    public void Dispose() {
+        gameInput.Disable();
+    }
 }

@@ -9,7 +9,5 @@ public class MovementBase : MonoBehaviour {
     public UnityEvent OnStartMoving;
     public UnityEvent OnStopMoving;
 
-    protected Vector2 ReadMovement() {
-        return movementInput.GetMovementDirection();
-    }
+    protected Vector2 ReadMovement() => movementInput.GetMovementDirection();
 }

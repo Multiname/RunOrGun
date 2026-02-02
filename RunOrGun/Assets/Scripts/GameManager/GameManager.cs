@@ -1,8 +1,11 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
-    [SerializeField] Hittable[] players = new Hittable[2];
+    [SerializeField] GameManagerData data;
+
+    [SerializeField] Hittable[] players = new Hittable[PlayerIndex.COUNT];
 
     private void OnEnable() {
         SetSceneReloadingOnPlayerHit();
@@ -28,7 +31,8 @@ public class GameManager : MonoBehaviour {
         #endregion
     }
 
-    private void ReloadBattleScene() {
-        //SceneManager.LoadScene("BattleScene");
+    private async void ReloadBattleScene() {
+        await UniTask.WaitForSeconds(data.DelayBeforeNewRound);
+        SceneManager.LoadScene("BattleScene");
     }
 }

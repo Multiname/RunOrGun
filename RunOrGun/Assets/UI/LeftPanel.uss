@@ -1,0 +1,79 @@
+:root {
+}
+
+.scoreText {
+    flex-basis: 100%;
+    flex-grow: 1;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 10px;
+    padding-bottom: 0;
+    padding-left: 0;
+    -unity-font-definition: url("project://database/Assets/Fonts/TDAText%20SDF.asset?fileID=11400000&guid=b4abf5a8baad9904ea590e4aa68f130c&type=2#TDAText SDF");
+    color: rgb(0, 0, 0);
+    -unity-text-align: middle-center;
+    -unity-text-auto-size: best-fit 10px 100px;
+    -unity-text-generator: advanced;
+    letter-spacing: -10px;
+}
+
+.scoreTextContainer {
+    width: 84px;
+    min-height: 49px;
+    max-height: 49px;
+}
+
+.button {
+    min-height: 84px;
+    max-height: 84px;
+    width: 84px;
+    -unity-background-scale-mode: scale-and-crop;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+.button:hover {
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.8);
+}
+
+.button:active {
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.5);
+}
+
+#ExitButton {
+    background-image: url("project://database/Assets/Sprites/UI/LeftPanel/panel_background_buttons.png?fileID=-211601839086024273&guid=17c53b5ef40c63f48af32800361f0a43&type=3#panel_background_buttons_exit");
+}
+
+#ExitButton:active {
+    background-image: url("project://database/Assets/Sprites/UI/LeftPanel/panel_background_buttons.png?fileID=-2965216714182586947&guid=17c53b5ef40c63f48af32800361f0a43&type=3#panel_background_buttons_exit_pressed");
+}
+
+#SoundButton {
+    background-image: url("project://database/Assets/Sprites/UI/LeftPanel/panel_background_buttons.png?fileID=-5370560905424491947&guid=17c53b5ef40c63f48af32800361f0a43&type=3#panel_background_buttons_sound");
+}
+
+#SoundButton:active {
+    background-image: url("project://database/Assets/Sprites/UI/LeftPanel/panel_background_buttons.png?fileID=-5141921753518178312&guid=17c53b5ef40c63f48af32800361f0a43&type=3#panel_background_buttons_sound_pressed");
+}
+
+#SoundButton.muted {
+    background-image: url("project://database/Assets/Sprites/UI/LeftPanel/panel_background_buttons.png?fileID=8503324941900902076&guid=17c53b5ef40c63f48af32800361f0a43&type=3#panel_background_buttons_muted");
+}
+
+#SoundButton.muted:active {
+    background-image: url("project://database/Assets/Sprites/UI/LeftPanel/panel_background_buttons.png?fileID=-4037220098553157192&guid=17c53b5ef40c63f48af32800361f0a43&type=3#panel_background_buttons_muted_pressed");
+}

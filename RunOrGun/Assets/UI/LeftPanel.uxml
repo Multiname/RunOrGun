@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/LeftPanel.uss?fileID=7433441132597879392&amp;guid=e1dbbc0e54a39234fb8b354893cacc6e&amp;type=3#LeftPanel"/>
+    <ui:VisualElement name="Panel" style="flex-grow: 1; width: 301px; background-image: url(&quot;project://database/Assets/Sprites/UI/LeftPanel/panel_background.png?fileID=21300000&amp;guid=5818d4552a39c70418b60cfb31bfa522&amp;type=3#panel_background&quot;); -unity-background-scale-mode: scale-and-crop;">
+        <ui:VisualElement name="FirstPlayerScoreTextContainer" class="scoreTextContainer" style="left: 140px; top: 92px; position: absolute;">
+            <ui:Label text="0" enable-rich-text="false" double-click-selects-word="false" triple-click-selects-line="false" name="FirstPlayerScore" class="scoreText"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="SecondPlayerScoreTextContainer" class="scoreTextContainer" style="left: 140px; top: 267px; position: absolute;">
+            <ui:Label text="0" enable-rich-text="false" double-click-selects-word="false" triple-click-selects-line="false" name="SecondPlayerScore" class="scoreText"/>
+        </ui:VisualElement>
+        <ui:Button name="ExitButton" class="button" style="position: absolute; left: 42px; bottom: 71px;"/>
+        <ui:Button name="SoundButton" class="button" style="position: absolute; right: 70px; bottom: 71px;"/>
+    </ui:VisualElement>
+</ui:UXML>

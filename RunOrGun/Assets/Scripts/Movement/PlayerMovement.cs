@@ -28,6 +28,14 @@ public class PlayerMovement : MovementBase {
         #endregion
     }
 
+    private void OnDisable() {
+        rb.linearVelocity = Vector2.zero;
+    }
+
+    private void OnDestroy() {
+        movementInput.Dispose();
+    }
+
     private void CheckMovingEvents() {
         if (MovementStarted()) {
             OnStartMoving?.Invoke();

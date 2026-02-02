@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] FlipPlayer flipPlayer;
     [SerializeField] PlayerController enemyPlayerController;
 
+    [field: SerializeField] public PlayerIndex.Index PlayerIndex { get; private set; }
+
     private MovementBase movement;
     private WeaponBase weapon;
     private Hittable hittable;
@@ -51,6 +53,7 @@ public class PlayerController : MonoBehaviour {
         weapon.enabled = false;
 
         enemyPlayerController.DisableWeapon();
+        enemyPlayerController.DisableTakenDamage();
 
         hittable.OnHit.RemoveListener(HandlePlayerHit);
         hittable.enabled = false;
@@ -61,6 +64,8 @@ public class PlayerController : MonoBehaviour {
         weaponVisibility.HideWeapon();
         playerShadow.SetBigShadow();
         playerAnimation.SetDead();
+
+        LeftPanel.Instance.IncrementPlayerScore(enemyPlayerController.PlayerIndex);
     }
 
     public void DisableWeapon() {
@@ -68,5 +73,10 @@ public class PlayerController : MonoBehaviour {
         movement.OnStartMoving.RemoveListener(weapon.StopShooting);
         movement.OnStopMoving.RemoveListener(weapon.StartShooting);
         weapon.enabled = false;
+    }
+
+    public void DisableTakenDamage() {
+        hittable.OnHit.RemoveListener(HandlePlayerHit);
+        hittable.enabled = false;
     }
 }
